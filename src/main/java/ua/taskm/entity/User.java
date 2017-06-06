@@ -13,22 +13,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-
+import javax.persistence.ManyToMany;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-
-
-import javax.persistence.ManyToMany;
-
 @Entity
 public class User implements UserDetails {
 
-
-@Id
-@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	private String name;
@@ -37,24 +32,20 @@ public class User implements UserDetails {
 	private String username;
 	private String email;
 	private String password;
-	
-	
-	
+
 	private String pathImage;
 
-	 @ManyToMany(fetch = FetchType.LAZY)
-	    @JoinTable(name = "task_user",
-	            joinColumns = @JoinColumn(name = "id_task"),
-	            inverseJoinColumns = @JoinColumn(name = "id_user"))
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "task_user", joinColumns = @JoinColumn(name = "id_task"), inverseJoinColumns = @JoinColumn(name = "id_user"))
 	private List<Task> tasks;
-	
+
 	@Enumerated
 	private Role role;
-	
+
 	public User() {
-		
+
 	}
-	
+
 	public User(String name, String username, String email, String password) {
 		super();
 		this.name = name;
@@ -63,9 +54,10 @@ public class User implements UserDetails {
 		this.password = password;
 	}
 
-	 public String getOriginUsername(){
-	        return username;
-	    }
+	public String getOriginUsername() {
+		return username;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -133,20 +125,18 @@ public class User implements UserDetails {
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 
 		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-		
+
 		authorities.add(new SimpleGrantedAuthority(role.name()));
 		return authorities;
 	}
 
-
-
 	public boolean isAccountNonExpired() {
-	
+
 		return true;
 	}
 
 	public boolean isAccountNonLocked() {
-		
+
 		return true;
 	}
 
@@ -156,9 +146,8 @@ public class User implements UserDetails {
 	}
 
 	public boolean isEnabled() {
-		
+
 		return true;
 	}
-	
-	
+
 }

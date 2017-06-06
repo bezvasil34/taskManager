@@ -17,48 +17,46 @@ import ua.taskm.service.UserService;
 @Controller
 public class TaskController {
 
-	
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
 	private TaskService taskService;
-	
-	
-	@RequestMapping(value="/addtaskpage", method=RequestMethod.GET)
-	public String addTaskPage(){
-		
-	
-				return "addtask";
-		
+
+	@RequestMapping(value = "/addtaskpage", method = RequestMethod.GET)
+	public String addTaskPage() {
+
+		return "addtask";
+
 	}
-	
-//	@RequestMapping(value="/addtask", method=RequestMethod.POST)
-//	public String addTask( @RequestParam String description, @RequestParam String date ){
-//		
-//	taskService.save(new Task(description,date));
-//	
-//				return "redirect:/profile";
-//	
-//	}
-	
-	@RequestMapping(value="/addtask", method=RequestMethod.POST)
-	public String adddTask(Principal principal,@RequestParam String description, @RequestParam String date){
-taskService.addTask(principal, description, date);
-	
-				return "redirect:/profile";
-}
-	
-	 @RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
-		public String delTask(@PathVariable String id){
-			taskService.delete(Integer.parseInt(id));
-			return "redirect:/profile";
-	 }
-	 
-	 @RequestMapping(value="/edit/{id}", method=RequestMethod.GET)
-		public String editTask(@PathVariable String id){
-			
-			return "edit";
-	 }
-	
+
+	// @RequestMapping(value="/addtask", method=RequestMethod.POST)
+	// public String addTask( @RequestParam String description, @RequestParam
+	// String date ){
+	//
+	// taskService.save(new Task(description,date));
+	//
+	// return "redirect:/profile";
+	//
+	// }
+
+	@RequestMapping(value = "/addtask", method = RequestMethod.POST)
+	public String adddTask(Principal principal, @RequestParam String description, @RequestParam String date) {
+		taskService.addTask(principal, description, date);
+
+		return "redirect:/profile";
+	}
+
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+	public String delTask(@PathVariable String id) {
+		taskService.delete(Integer.parseInt(id));
+		return "redirect:/profile";
+	}
+
+	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+	public String editTask(@PathVariable String id) {
+
+		return "edit";
+	}
+
 }

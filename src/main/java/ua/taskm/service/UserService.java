@@ -9,19 +9,19 @@ import ua.taskm.entity.User;
 
 public interface UserService {
 
-void save(User user);
-	
-	List<User> findAll();
-	
-	User findOne(int id);
-	
-	void delete(int id);
-	
-	 User findUserFetch(int id);
-	 
-	 void saveImage(Principal principal, MultipartFile multipartFile);
-	 
-	    User findByUsername(String username);
+	void save(User user);
 
-	    User findByEmail(String email);
+	List<User> findAll();
+
+	User findOne(int id);
+
+	void delete(int id);
+
+	User findUserFetch(int id);
+
+	void saveImage(Principal principal, MultipartFile multipartFile);
+
+	User findByUsername(String username);
+
+	User findByEmail(String email);
 }
