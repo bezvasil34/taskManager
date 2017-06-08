@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
@@ -9,17 +9,36 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
- <link  rel="stylesheet" href="resources/css/edit.css"/>
- 
 <title>Edit Task</title>
 
-<sf:form action="profile" method="get">
-        <button class="btn btn-default" >All tasks</button>
-        </sf:form>
+ <link  rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/edit.css" type="text/css"/>
+ 
+ 
 
 </head>
-<body>
+<body >
+<sf:form action="prof" method="get">
+        <button class="btn btn-default" >All tasks</button>
+        </sf:form>
+        
+	
+
+<div class="container">
+  <div class="task__head task--row">Edit TASK </div>
+  <sf:form action="editTask/${taskForEdit.id }"  method="post">
+  <input class="inp" name="newDescription" placeholder="${taskForEdit.description }"/>
+  <input name="newDate" class="date" type="date">
+<button>Save</button>
+</sf:form>
+</div>
+
+   
+
+
+  
+
+ 
 
 </body>
+
 </html>

@@ -20,14 +20,14 @@
 
 			<sf:form action="logout" method="post">
         <button class="btn btn-default" >Logout</button>
-        ${userAuth.name}
+      
         </sf:form>
 			
 <div class="container">
   <div class="task__head task--row">YOUR TASKS </div>
   <c:forEach var="task" items="${tasks}">
   <div>
- <h2> ${task.description} ${task.date} <a href="delete/${task.id }">delete</a> <a href="edit/${task.id }">edit</a> </h2>
+ <h2> ${task.description} ${task.date} <a href="delete/${task.id }">delete task</a> <a href="edit/${task.id }">edit task</a> </h2>
  </div>
   </c:forEach>
 

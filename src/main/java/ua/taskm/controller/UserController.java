@@ -1,5 +1,7 @@
 package ua.taskm.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,25 +37,15 @@ public class UserController {
 
 		userService.save(new User(name, username, email, password));
 
-		return "index";
+		return "loginpage";
 	}
 
-	@RequestMapping(value = "/loginproc", method = RequestMethod.GET)
-	public String loginprocesing(Model model) {
-		// model.addAttribute("userAuth",
-		// userService.findOne(Integer.parseInt(principal.getName())));
+	@RequestMapping(value = "/loginprocesing", method = RequestMethod.GET)
+	public String loginprocesing(Model model, Principal principal) {
+	
 		model.addAttribute("tasks", taskService.findAll());
 		return "profile";
 	}
 
-	// @RequestMapping(value="/addtask", method=RequestMethod.POST)
-	// public String addTask(Principal principal,@RequestParam String
-	// description, @RequestParam String date){
-	//
-	//
-	// User user = userService.findOne(Integer.parseInt(principal.getName()));
-	//
-	// taskService.save(new Task(description,date,user));
-	// return "profile";
-	// }
+
 }

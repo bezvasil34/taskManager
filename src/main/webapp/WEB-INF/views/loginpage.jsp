@@ -49,7 +49,7 @@
   <input type="submit" name="submit" id="submit"/>
 </sf:form>
 <!-- login -->
-<sf:form role="form" action="loginproc" method="get" id="login">
+<sf:form role="form" action="loginprocesing" method="get" id="login">
   <p>
     <input type="text" name="username" id="username" placeholder="Enter your username" >
   </p>

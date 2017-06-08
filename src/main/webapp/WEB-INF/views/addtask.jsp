@@ -14,7 +14,7 @@
 <link  rel="stylesheet" href="resources/css/addtask.css"/>
 </head>
 <body>
-<sf:form action="profile" method="get">
+<sf:form action="addtask/prof" method="get">
         <button class="btn btn-default" >All tasks</button>
         </sf:form>
 <div class="container">

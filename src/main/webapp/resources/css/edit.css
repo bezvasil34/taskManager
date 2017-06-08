@@ -16,10 +16,6 @@ body{
   color: #000000;
 }
 
-
-
-
-
 @import url(https://fonts.googleapis.com/css?family=Space+Mono:400,700);
 
 /* body { */
@@ -165,3 +161,8 @@ input {
 .edit {
 	float: right;
 	}
+.inp{
+	 width:100%;
+	 height: 200px;
+}
+
